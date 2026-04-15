@@ -376,20 +376,44 @@
   .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
   .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view { opacity: 1; transform: none; }
+  .reveal.fade-left  { transform: translateX(-40px); }
+  .reveal.fade-right { transform: translateX(40px); }
+  .reveal.zoom       { transform: scale(0.94); }
+  .reveal.in-view.fade-left,
+  .reveal.in-view.fade-right,
+  .reveal.in-view.zoom { transform: none; }
+  /* stagger for grid children */
+  .stagger > .reveal:nth-child(1) { transition-delay: 0.05s; }
+  .stagger > .reveal:nth-child(2) { transition-delay: 0.15s; }
+  .stagger > .reveal:nth-child(3) { transition-delay: 0.25s; }
+  .stagger > .reveal:nth-child(4) { transition-delay: 0.35s; }
+  .stagger > .reveal:nth-child(5) { transition-delay: 0.45s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <div class="marquee">🔥 Sprint Live Now! &nbsp;<span>15 April – 30 June 2026</span>&nbsp; · Earn up to ₹1,000 per disbursal · Limited Period Only</div>
+</div>
 
 <!-- NAV -->
 <nav>
   <img src="lark-logo.png" alt="Lark Finserv" style="height:34px;width:auto;">
   <a href="https://sdk-partner.larkfinserv.com/dashboard" class="nav-cta">Register / Login on Partner Portal →</a>
 </nav>
-
-<!-- COUNTDOWN BAR -->
-<div class="countdown-bar">
-  <div class="marquee">🔥 Sprint Live Now! &nbsp;<span>15 April – 30 June 2026</span>&nbsp; · Earn up to ₹1,000 per disbursal · Limited Period Only</div>
-</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -406,20 +430,20 @@
     <a href="https://sdk-partner.larkfinserv.com/dashboard" class="btn-yellow">Start Earning Now →</a>
     <a href="#payouts" class="btn-outline">See Rewards</a>
   </div>
-  <div class="stats-row">
-    <div class="stat-box">
+  <div class="stats-row stagger">
+    <div class="stat-box reveal zoom">
       <div class="stat-num">₹500 Cr+</div>
       <div class="stat-lbl">LAMF Disbursed</div>
     </div>
-    <div class="stat-box">
+    <div class="stat-box reveal zoom">
       <div class="stat-num">500+</div>
       <div class="stat-lbl">Active Partners</div>
     </div>
-    <div class="stat-box">
+    <div class="stat-box reveal zoom">
       <div class="stat-num">₹1,000</div>
       <div class="stat-lbl">Max Per Disbursal</div>
     </div>
-    <div class="stat-box">
+    <div class="stat-box reveal zoom">
       <div class="stat-num">5 Min</div>
       <div class="stat-lbl">Loan Decision</div>
     </div>
@@ -431,26 +455,26 @@
 <!-- HOW IT WORKS -->
 <div class="section dark">
   <div class="container">
-    <div class="section-tag">How It Works</div>
-    <h2 class="section-title">THREE STEPS. UNLIMITED REWARDS.</h2>
-    <p class="section-sub">The simplest incentive structure in the LAS industry — built for partners who mean business.</p>
-    <div class="steps-grid">
-      <div class="step-card">
+    <div class="section-tag reveal">How It Works</div>
+    <h2 class="section-title reveal">THREE STEPS. UNLIMITED REWARDS.</h2>
+    <p class="section-sub reveal">The simplest incentive structure in the LAS industry — built for partners who mean business.</p>
+    <div class="steps-grid stagger">
+      <div class="step-card reveal">
         <div class="step-num">01</div>
         <h3>Onboard &amp; Activate</h3>
         <p>Log in to your Lark Partner Portal with your valid ARN. Make sure your profile and bank details are up to date.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal">
         <div class="step-num">02</div>
         <h3>Disburse New Loans</h3>
         <p>Submit new LAMF applications for customers with zero prior Lark history. Minimum sanction of ₹1 Lakh applies.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal">
         <div class="step-num">03</div>
         <h3>Hit Monthly Slabs</h3>
         <p>The more you disburse in a calendar month, the higher your per-application payout. Slabs reset every month.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal">
         <div class="step-num">04</div>
         <h3>Choose Your Track</h3>
         <p>Stack cash payouts OR elect for Excellence Vault milestone prizes. The choice is yours at the time of claiming.</p>
@@ -464,35 +488,35 @@
 <!-- CASH PAYOUTS -->
 <div class="section indigo-tint" id="payouts">
   <div class="container">
-    <div class="section-tag">Cash Payouts</div>
-    <h2 class="section-title">EARN MORE AS YOU DISBURSE MORE.</h2>
-    <p class="section-sub">Monthly rolling slabs — the higher your band, the more you earn per application. Resets every calendar month.</p>
-    <div class="payout-grid">
-      <div class="payout-card">
+    <div class="section-tag reveal">Cash Payouts</div>
+    <h2 class="section-title reveal">EARN MORE AS YOU DISBURSE MORE.</h2>
+    <p class="section-sub reveal">Monthly rolling slabs — the higher your band, the more you earn per application. Resets every calendar month.</p>
+    <div class="payout-grid stagger">
+      <div class="payout-card reveal zoom">
         <div class="p-apps">Monthly Apps</div>
         <div class="p-range">1 – 3</div>
         <div class="p-amount">₹200</div>
         <div class="p-per">per application</div>
       </div>
-      <div class="payout-card">
+      <div class="payout-card reveal zoom">
         <div class="p-apps">Monthly Apps</div>
         <div class="p-range">4 – 6</div>
         <div class="p-amount">₹400</div>
         <div class="p-per">per application</div>
       </div>
-      <div class="payout-card">
+      <div class="payout-card reveal zoom">
         <div class="p-apps">Monthly Apps</div>
         <div class="p-range">7 – 10</div>
         <div class="p-amount">₹600</div>
         <div class="p-per">per application</div>
       </div>
-      <div class="payout-card">
+      <div class="payout-card reveal zoom">
         <div class="p-apps">Monthly Apps</div>
         <div class="p-range">11 – 20</div>
         <div class="p-amount">₹800</div>
         <div class="p-per">per application</div>
       </div>
-      <div class="payout-card top">
+      <div class="payout-card top reveal zoom">
         <div class="p-apps">Monthly Apps</div>
         <div class="p-range">21+</div>
         <div class="p-amount">₹1,000</div>
@@ -508,25 +532,25 @@
 <!-- EXCELLENCE VAULT -->
 <div class="section darker">
   <div class="container">
-    <div class="section-tag">The Lark Excellence Vault</div>
-    <h2 class="section-title">WIN BIG. THINK BIGGER.</h2>
-    <p class="section-sub">India's first cumulative milestone prize structure in the LAS ecosystem. Cumulative across the full sprint period.</p>
-    <div class="vault-grid">
-      <div class="vault-card">
+    <div class="section-tag reveal">The Lark Excellence Vault</div>
+    <h2 class="section-title reveal">WIN BIG. THINK BIGGER.</h2>
+    <p class="section-sub reveal">India's first cumulative milestone prize structure in the LAS ecosystem. Cumulative across the full sprint period.</p>
+    <div class="vault-grid stagger">
+      <div class="vault-card reveal">
         <div class="v-milestone">Milestone</div>
         <div class="v-apps">25+</div>
         <span class="v-icon">🎧</span>
         <div class="v-name">Apple AirPods 4</div>
         <div class="v-detail">25 new LAMF disbursals over the sprint period</div>
       </div>
-      <div class="vault-card">
+      <div class="vault-card reveal">
         <div class="v-milestone">Milestone</div>
         <div class="v-apps">35+</div>
         <span class="v-icon">⌚</span>
         <div class="v-name">Apple Watch SE</div>
         <div class="v-detail">3rd Generation · 35 new disbursals over sprint</div>
       </div>
-      <div class="vault-card highlight">
+      <div class="vault-card highlight reveal">
         <div class="corner-badge">Most Popular</div>
         <div class="v-milestone">Milestone</div>
         <div class="v-apps">50+</div>
@@ -534,7 +558,7 @@
         <div class="v-name">Apple iPhone 17</div>
         <div class="v-detail">50 new LAMF disbursals over the sprint period</div>
       </div>
-      <div class="vault-card gold">
+      <div class="vault-card gold reveal">
         <div class="v-milestone">Milestone</div>
         <div class="v-apps">100+</div>
         <span class="v-icon">🏝</span>
@@ -553,10 +577,10 @@
 <!-- PROCESSING FEE -->
 <div class="section purple-tint">
   <div class="container">
-    <div class="section-tag">Sprint-Period Concession</div>
-    <h2 class="section-title">PROCESSING FEES? WE SLASHED THEM.</h2>
-    <p class="section-sub">Exclusive concessional rates for all applications received during the Sprint Period — making it easier than ever to close deals.</p>
-    <table class="fee-table">
+    <div class="section-tag reveal">Sprint-Period Concession</div>
+    <h2 class="section-title reveal">PROCESSING FEES? WE SLASHED THEM.</h2>
+    <p class="section-sub reveal">Exclusive concessional rates for all applications received during the Sprint Period — making it easier than ever to close deals.</p>
+    <table class="fee-table reveal">
       <thead>
         <tr>
           <th>Loan Sanction Amount</th>
@@ -595,30 +619,30 @@
 <!-- ELIGIBILITY -->
 <div class="section dark">
   <div class="container">
-    <div class="section-tag">Eligibility</div>
-    <h2 class="section-title">WHO QUALIFIES?</h2>
-    <div class="elig-grid">
-      <div class="elig-item">
+    <div class="section-tag reveal">Eligibility</div>
+    <h2 class="section-title reveal">WHO QUALIFIES?</h2>
+    <div class="elig-grid stagger">
+      <div class="elig-item reveal">
         <div class="elig-icon">✓</div>
         <div class="elig-text"><strong>Active Lark Partner</strong> — Successfully onboarded on the official Lark Finserv partner portal.</div>
       </div>
-      <div class="elig-item">
+      <div class="elig-item reveal">
         <div class="elig-icon">✓</div>
         <div class="elig-text"><strong>Valid ARN Required</strong> — Must hold a current, valid AMFI Registration Number.</div>
       </div>
-      <div class="elig-item">
+      <div class="elig-item reveal">
         <div class="elig-icon">✓</div>
         <div class="elig-text"><strong>New Customers Only</strong> — Only new LAMF applications count. Existing Lark customers excluded.</div>
       </div>
-      <div class="elig-item">
+      <div class="elig-item reveal">
         <div class="elig-icon">✓</div>
         <div class="elig-text"><strong>Min ₹1 Lakh Sanction</strong> — Each qualifying application must have a sanctioned limit ≥ ₹1,00,000.</div>
       </div>
-      <div class="elig-item">
+      <div class="elig-item reveal">
         <div class="elig-icon no">✗</div>
         <div class="elig-text"><strong>Not eligible:</strong> Credit limit enhancements, margin call responses, and line increment requests.</div>
       </div>
-      <div class="elig-item">
+      <div class="elig-item reveal">
         <div class="elig-icon no">✗</div>
         <div class="elig-text"><strong>Not eligible:</strong> Applications via third-party referral platforms or external aggregators.</div>
       </div>
@@ -631,30 +655,30 @@
 <!-- TIMELINE -->
 <div class="section indigo-tint">
   <div class="container">
-    <div class="section-tag">Programme Timeline</div>
-    <h2 class="section-title">KEY DATES TO REMEMBER.</h2>
-    <div class="timeline-row">
-      <div class="tl-item">
+    <div class="section-tag reveal">Programme Timeline</div>
+    <h2 class="section-title reveal">KEY DATES TO REMEMBER.</h2>
+    <div class="timeline-row stagger">
+      <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-date">15 APR 2026</div>
         <div class="tl-label">Sprint Goes Live</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-date">30 APR 2026</div>
         <div class="tl-label">Month 1 Slabs End</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-date">31 MAY 2026</div>
         <div class="tl-label">Month 2 Slabs End</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item reveal">
         <div class="tl-dot gold-dot"></div>
         <div class="tl-date">30 JUN 2026</div>
         <div class="tl-label">Sprint Closes</div>
       </div>
-      <div class="tl-item">
+      <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-date">29 AUG 2026</div>
         <div class="tl-label">All Rewards Disbursed</div>
@@ -711,6 +735,18 @@
       document.getElementById('payouts').scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
