@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lark Partner Launch Sprint 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --slate: #1e293b;
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
+    --grad-primary: linear-gradient(135deg, #6366f1 0%, #7c3aed 50%, #a855f7 100%);
+    --grad-hero: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #6366f1 100%);
+    --yellow: #f5e642;
+    --white: #ffffff;
+    --dark: #09090b;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── COUNTDOWN BAR ── */
+  .countdown-bar {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    text-align: center;
+    padding: 0.7rem 2rem;
+    font-size: 0.88rem; font-weight: 700;
+    letter-spacing: 0.3px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .countdown-bar span { font-weight: 800; color: var(--yellow); }
+
+  /* ── NAV ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(9,9,11,0.98);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-cta {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: #fff; border: none;
+    padding: 0.65rem 1.4rem; border-radius: 100px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 700;
+    text-decoration: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4338ca 60%, #6366f1 100%);
+    padding: 5rem 3rem 4rem;
+    text-align: center;
+    position: relative;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--yellow);
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 0.4rem 1.2rem; border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem; line-height: 0.92;
+    letter-spacing: 2px; margin-bottom: 1.5rem;
+  }
+  .hero-title .yellow { color: var(--yellow); }
+  .hero-title .light { color: #c4b5fd; }
+  .hero-sub {
+    font-size: 1.05rem; color: #fff;
+    max-width: 620px; margin: 0 auto 2.5rem;
+    line-height: 1.75; font-weight: 500;
+  }
+  .hero-sub strong { color: var(--yellow); font-weight: 800; }
+
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; }
+  .btn-yellow {
+    background: var(--yellow); color: #09090b;
+    font-weight: 800; font-size: 0.95rem;
+    padding: 0.85rem 2rem; border-radius: 100px;
+    text-decoration: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .btn-outline {
+    background: transparent; color: #fff;
+    font-weight: 600; font-size: 0.95rem;
+    padding: 0.85rem 2rem; border-radius: 100px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    text-decoration: none;
+  }
+
+  .stats-row {
+    display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 14px; padding: 1.1rem 1.8rem;
+    text-align: center; min-width: 130px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6rem; line-height: 1;
+    color: var(--yellow);
+  }
+  .stat-lbl { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fff; margin-top: 0.3rem; }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 4rem 3rem; }
+  .section.dark { background: #09090b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section.darker { background: #050507; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section.purple-tint {
+    background: linear-gradient(135deg, #0f0c29, #1e1b4b);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .section.indigo-tint {
+    background: rgba(99,102,241,0.06);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: #a5b4fc; margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.8rem; line-height: 1; letter-spacing: 1px; margin-bottom: 0.8rem;
+  }
+  .section-sub { color: #fff; font-size: 0.95rem; line-height: 1.7; max-width: 520px; }
+
+  /* ── HOW IT WORKS ── */
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem; margin-top: 2.5rem;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px; padding: 1.8rem 1.4rem;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 0.8rem;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .step-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .step-card p { font-size: 0.83rem; color: #ddd; line-height: 1.6; }
+
+  /* ── PAYOUT ── */
+  .payout-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1rem; margin-top: 2.5rem;
+  }
+  .payout-card {
+    border-radius: 14px; padding: 1.8rem 1.2rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .payout-card.top {
+    background: linear-gradient(135deg, #6366f1, #7c3aed, #a855f7);
+    border-color: transparent;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .p-apps { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #ccc; margin-bottom: 0.6rem; }
+  .payout-card.top .p-apps { color: rgba(255,255,255,0.85); }
+  .p-range { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #fff; margin-bottom: 0.4rem; }
+  .p-amount { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 1; color: var(--yellow); }
+  .payout-card.top .p-amount { color: #fff; }
+  .p-per { font-size: 0.68rem; color: #ccc; margin-top: 0.3rem; }
+  .payout-card.top .p-per { color: rgba(255,255,255,0.8); }
+  .payout-note { margin-top: 1.2rem; font-size: 0.75rem; color: #aaa; text-align: center; }
+
+  /* ── VAULT ── */
+  .vault-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem; margin-top: 2.5rem;
+  }
+  .vault-card {
+    border-radius: 16px; padding: 2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    position: relative;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .vault-card.highlight {
+    background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(168,85,247,0.18));
+    border-color: rgba(99,102,241,0.35);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .vault-card.gold {
+    background: linear-gradient(135deg, rgba(245,230,66,0.1), rgba(245,230,66,0.04));
+    border-color: rgba(245,230,66,0.3);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .v-milestone { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 2px; color: #bbb; margin-bottom: 0.4rem; }
+  .v-apps {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.2rem; line-height: 1;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 1rem;
+  }
+  .vault-card.gold .v-apps {
+    background: linear-gradient(135deg, #f5e642, #fbbf24);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .v-icon { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
+  .v-name { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+  .v-detail { font-size: 0.8rem; color: #ccc; line-height: 1.5; }
+  .corner-badge {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--yellow); color: #09090b;
+    font-size: 0.6rem; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 100px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .vault-note {
+    margin-top: 1.5rem; padding: 1rem 1.3rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; font-size: 0.8rem; color: #ddd; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  /* ── FEE TABLE ── */
+  .fee-table {
+    width: 100%; border-collapse: collapse; margin-top: 2.5rem;
+  }
+  .fee-table th {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #ccc; padding: 1rem 1.5rem; text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .fee-table td {
+    padding: 1.2rem 1.5rem; font-size: 0.95rem; font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.06); color: #fff;
+  }
+  .fee-big { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 1px; color: var(--yellow); }
+  .fee-old { color: rgba(255,255,255,0.35); text-decoration: line-through; }
+  .fee-badge {
+    background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.35);
+    color: #4ade80; font-size: 0.68rem; font-weight: 700;
+    padding: 3px 10px; border-radius: 100px; letter-spacing: 1px; text-transform: uppercase;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .fee-badge.gold-badge {
+    background: rgba(245,230,66,0.1); border-color: rgba(245,230,66,0.35); color: var(--yellow);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .fee-note { margin-top: 1rem; font-size: 0.75rem; color: #aaa; }
+
+  /* ── ELIGIBILITY ── */
+  .elig-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-top: 2.5rem;
+  }
+  .elig-item {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    padding: 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .elig-icon {
+    width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: 800; color: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .elig-icon.no { background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.35); color: #f87171; }
+  .elig-text { font-size: 0.83rem; color: #ddd; line-height: 1.55; }
+  .elig-text strong { color: #fff; font-weight: 700; }
+
+  /* ── TIMELINE ── */
+  .timeline-row {
+    display: flex; gap: 0; margin-top: 2.5rem;
+    position: relative;
+  }
+  .timeline-row::before {
+    content: ''; position: absolute; top: 15px; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .tl-item { flex: 1; text-align: center; position: relative; padding: 0 0.8rem; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    margin: 9px auto 0.8rem;
+    border: 2.5px solid #09090b;
+    box-shadow: 0 0 0 2px #6366f1;
+    position: relative; z-index: 1;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .tl-dot.gold-dot {
+    background: var(--yellow); box-shadow: 0 0 0 2px #f5e642;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .tl-date { font-size: 0.7rem; font-weight: 700; color: #c4b5fd; letter-spacing: 0.5px; margin-bottom: 0.25rem; }
+  .tl-label { font-size: 0.78rem; color: #fff; line-height: 1.35; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, #1e1b4b, #312e81, #4338ca);
+    text-align: center; padding: 5rem 3rem;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem; line-height: 1; margin-bottom: 1.2rem;
+  }
+  .cta-title .grad {
+    background: linear-gradient(135deg, #e0e7ff, #c4b5fd);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cta-sub { color: #e2e8f0; font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; }
+  .contact-row { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+  .contact-item { text-align: center; }
+  .contact-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .contact-val { font-size: 0.88rem; color: #fff; font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #030303; border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 3rem; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  🔥 Sprint Live Now! &nbsp;<span>15 April – 30 June 2026</span>&nbsp; · Earn up to ₹1,000 per disbursal · Limited Period Only
+</div>
+
+<!-- NAV -->
+<nav>
+  <img src="https://larkfinserv.com/assets/logos/logo_white.png" alt="Lark Finserv" style="height:34px;width:auto;">
+  <a href="https://sdk-partner.larkfinserv.com/dashboard" class="nav-cta">Register / Login on Partner Portal →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">⚡ FY 2026–27 · Q1 · Partner Launch Sprint</div>
+  <h1 class="hero-title">
+    DISBURSE MORE.<br>
+    <span class="yellow">EARN MORE.</span><br>
+    <span class="light">WIN MORE.</span>
+  </h1>
+  <p class="hero-sub">
+    Launching India's most rewarding program for Lark Finserv's MFD Partners &amp; Members — get a chance to earn more than <strong>₹1,00,000/- in Cash</strong>, win an <strong>iPhone 17</strong>, a <strong>Thailand Trip</strong> and many more exciting rewards...
+  </p>
+  <div class="hero-btns">
+    <a href="https://sdk-partner.larkfinserv.com/dashboard" class="btn-yellow">Start Earning Now →</a>
+    <a href="#payouts" class="btn-outline">See Rewards</a>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">₹500 Cr+</div>
+      <div class="stat-lbl">LAMF Disbursed</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">500+</div>
+      <div class="stat-lbl">Active Partners</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">₹1,000</div>
+      <div class="stat-lbl">Max Per Disbursal</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">5 Min</div>
+      <div class="stat-lbl">Loan Decision</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<div class="section dark">
+  <div class="container">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">THREE STEPS. UNLIMITED REWARDS.</h2>
+    <p class="section-sub">The simplest incentive structure in the LAS industry — built for partners who mean business.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Onboard &amp; Activate</h3>
+        <p>Log in to your Lark Partner Portal with your valid ARN. Make sure your profile and bank details are up to date.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Disburse New Loans</h3>
+        <p>Submit new LAMF applications for customers with zero prior Lark history. Minimum sanction of ₹1 Lakh applies.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Hit Monthly Slabs</h3>
+        <p>The more you disburse in a calendar month, the higher your per-application payout. Slabs reset every month.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Choose Your Track</h3>
+        <p>Stack cash payouts OR elect for Excellence Vault milestone prizes. The choice is yours at the time of claiming.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CASH PAYOUTS -->
+<div class="section indigo-tint" id="payouts">
+  <div class="container">
+    <div class="section-tag">Cash Payouts</div>
+    <h2 class="section-title">EARN MORE AS YOU DISBURSE MORE.</h2>
+    <p class="section-sub">Monthly rolling slabs — the higher your band, the more you earn per application. Resets every calendar month.</p>
+    <div class="payout-grid">
+      <div class="payout-card">
+        <div class="p-apps">Monthly Apps</div>
+        <div class="p-range">1 – 3</div>
+        <div class="p-amount">₹200</div>
+        <div class="p-per">per application</div>
+      </div>
+      <div class="payout-card">
+        <div class="p-apps">Monthly Apps</div>
+        <div class="p-range">4 – 6</div>
+        <div class="p-amount">₹400</div>
+        <div class="p-per">per application</div>
+      </div>
+      <div class="payout-card">
+        <div class="p-apps">Monthly Apps</div>
+        <div class="p-range">7 – 10</div>
+        <div class="p-amount">₹600</div>
+        <div class="p-per">per application</div>
+      </div>
+      <div class="payout-card">
+        <div class="p-apps">Monthly Apps</div>
+        <div class="p-range">11 – 20</div>
+        <div class="p-amount">₹800</div>
+        <div class="p-per">per application</div>
+      </div>
+      <div class="payout-card top">
+        <div class="p-apps">Monthly Apps</div>
+        <div class="p-range">21+</div>
+        <div class="p-amount">₹1,000</div>
+        <div class="p-per">per application · max tier</div>
+      </div>
+    </div>
+    <p class="payout-note">All amounts inclusive of applicable GST. Payouts credited to registered bank account within 60 days of sprint close.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EXCELLENCE VAULT -->
+<div class="section darker">
+  <div class="container">
+    <div class="section-tag">The Lark Excellence Vault</div>
+    <h2 class="section-title">WIN BIG. THINK BIGGER.</h2>
+    <p class="section-sub">India's first cumulative milestone prize structure in the LAS ecosystem. Cumulative across the full sprint period.</p>
+    <div class="vault-grid">
+      <div class="vault-card">
+        <div class="v-milestone">Milestone</div>
+        <div class="v-apps">25+</div>
+        <span class="v-icon">🎧</span>
+        <div class="v-name">Apple AirPods 4</div>
+        <div class="v-detail">25 new LAMF disbursals over the sprint period</div>
+      </div>
+      <div class="vault-card">
+        <div class="v-milestone">Milestone</div>
+        <div class="v-apps">35+</div>
+        <span class="v-icon">⌚</span>
+        <div class="v-name">Apple Watch SE</div>
+        <div class="v-detail">3rd Generation · 35 new disbursals over sprint</div>
+      </div>
+      <div class="vault-card highlight">
+        <div class="corner-badge">Most Popular</div>
+        <div class="v-milestone">Milestone</div>
+        <div class="v-apps">50+</div>
+        <span class="v-icon">📱</span>
+        <div class="v-name">Apple iPhone 17</div>
+        <div class="v-detail">50 new LAMF disbursals over the sprint period</div>
+      </div>
+      <div class="vault-card gold">
+        <div class="v-milestone">Milestone</div>
+        <div class="v-apps">100+</div>
+        <span class="v-icon">🏝</span>
+        <div class="v-name">Thailand — 4N/5D</div>
+        <div class="v-detail">All-expense trip · 100 new disbursals · The Ultimate Sprint</div>
+      </div>
+    </div>
+    <div class="vault-note">
+      ℹ️ &nbsp;Partners who elect to redeem a Vault prize (25+ applications) will not simultaneously receive cash payouts for those applications. Election is final at the time of claiming.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROCESSING FEE -->
+<div class="section purple-tint">
+  <div class="container">
+    <div class="section-tag">Sprint-Period Concession</div>
+    <h2 class="section-title">PROCESSING FEES? WE SLASHED THEM.</h2>
+    <p class="section-sub">Exclusive concessional rates for all applications received during the Sprint Period — making it easier than ever to close deals.</p>
+    <table class="fee-table">
+      <thead>
+        <tr>
+          <th>Loan Sanction Amount</th>
+          <th>Standard Fee</th>
+          <th>Sprint Fee</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Up to ₹15 Lakhs</strong></td>
+          <td class="fee-old">₹1,999 + GST</td>
+          <td class="fee-big">₹999 + GST</td>
+          <td><span class="fee-badge">Reduced</span></td>
+        </tr>
+        <tr>
+          <td><strong>₹15 Lakhs – ₹45 Lakhs</strong></td>
+          <td class="fee-old">₹1,499 + GST</td>
+          <td class="fee-big">₹500 + GST</td>
+          <td><span class="fee-badge">Slashed</span></td>
+        </tr>
+        <tr>
+          <td><strong>Above ₹45 Lakhs</strong></td>
+          <td class="fee-old">₹999 + GST</td>
+          <td class="fee-big">ZERO</td>
+          <td><span class="fee-badge gold-badge">Fully Waived</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="fee-note">Processing fees payable by the customer. Concession valid solely for the Sprint Period (15 Apr – 30 Jun 2026).</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ELIGIBILITY -->
+<div class="section dark">
+  <div class="container">
+    <div class="section-tag">Eligibility</div>
+    <h2 class="section-title">WHO QUALIFIES?</h2>
+    <div class="elig-grid">
+      <div class="elig-item">
+        <div class="elig-icon">✓</div>
+        <div class="elig-text"><strong>Active Lark Partner</strong> — Successfully onboarded on the official Lark Finserv partner portal.</div>
+      </div>
+      <div class="elig-item">
+        <div class="elig-icon">✓</div>
+        <div class="elig-text"><strong>Valid ARN Required</strong> — Must hold a current, valid AMFI Registration Number.</div>
+      </div>
+      <div class="elig-item">
+        <div class="elig-icon">✓</div>
+        <div class="elig-text"><strong>New Customers Only</strong> — Only new LAMF applications count. Existing Lark customers excluded.</div>
+      </div>
+      <div class="elig-item">
+        <div class="elig-icon">✓</div>
+        <div class="elig-text"><strong>Min ₹1 Lakh Sanction</strong> — Each qualifying application must have a sanctioned limit ≥ ₹1,00,000.</div>
+      </div>
+      <div class="elig-item">
+        <div class="elig-icon no">✗</div>
+        <div class="elig-text"><strong>Not eligible:</strong> Credit limit enhancements, margin call responses, and line increment requests.</div>
+      </div>
+      <div class="elig-item">
+        <div class="elig-icon no">✗</div>
+        <div class="elig-text"><strong>Not eligible:</strong> Applications via third-party referral platforms or external aggregators.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<div class="section indigo-tint">
+  <div class="container">
+    <div class="section-tag">Programme Timeline</div>
+    <h2 class="section-title">KEY DATES TO REMEMBER.</h2>
+    <div class="timeline-row">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">15 APR 2026</div>
+        <div class="tl-label">Sprint Goes Live</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">30 APR 2026</div>
+        <div class="tl-label">Month 1 Slabs End</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">31 MAY 2026</div>
+        <div class="tl-label">Month 2 Slabs End</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold-dot"></div>
+        <div class="tl-date">30 JUN 2026</div>
+        <div class="tl-label">Sprint Closes</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">29 AUG 2026</div>
+        <div class="tl-label">All Rewards Disbursed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="section-tag" style="color:#c4b5fd;">Ready to Sprint?</div>
+  <h2 class="cta-title">
+    DISBURSE MORE.<br>
+    <span class="grad">EARN MORE. WIN MORE.</span>
+  </h2>
+  <p class="cta-sub">India's first full-stack LAS incentive programme is live. 76 days. Unlimited potential. Your move.</p>
+  <div class="cta-btns">
+    <a href="https://sdk-partner.larkfinserv.com/dashboard" class="btn-yellow">Login to Partner Portal →</a>
+    <a href="https://www.larkfinserv.com" class="btn-outline">Visit Lark Finserv</a>
+  </div>
+  <div class="contact-row">
+    <div class="contact-item">
+      <div class="contact-lbl">Email</div>
+      <div class="contact-val">partnership@larkfinserv.com</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-lbl">Phone</div>
+      <div class="contact-val">+91-8368219158</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-lbl">Website</div>
+      <div class="contact-val">www.larkfinserv.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://larkfinserv.com/assets/logos/logo_white.png" alt="Lark Finserv" style="height:26px;width:auto;">
+  <div class="footer-links">
+    <a href="https://www.larkfinserv.com">Website</a>
+    <a href="mailto:partnerships@larkfinserv.com">Contact</a>
+    <a href="#">T&Cs Apply</a>
+  </div>
+  <div class="footer-copy">© 2026 Lark Finserv Private Limited. All rights reserved.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href="#payouts"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('payouts').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
